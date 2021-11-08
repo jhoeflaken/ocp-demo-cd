@@ -9,7 +9,7 @@ spec:
   destination:
     name: in-cluster
     namespace: ocp-demo-dev
-  project: ocp-demo-dev
+  project: default
   source:
     path: src/apps/dev
     repoURL: 'https://github.com/jhoeflaken/ocp-demo-config'
