@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: ocp-demo-dev
+  namespace: openshift-gitops
+  # Finalizer that ensures that project is not deleted until it is not referenced by any application
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: >
+    Application bundle for the deployment of the OCP Demo Application in development.
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: '*'
+    - name: '*'
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
