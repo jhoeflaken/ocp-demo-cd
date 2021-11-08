@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ocp-demo
+  name: ocp-demo-dev
   namespace: openshift-gitops
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: ocp-demo
+    namespace: ocp-demo-dev
     name: in-cluster
   source:
     path: src/apps/dev
     repoURL: 'https://github.com/jhoeflaken/ocp-demo-cd.git'
-    targetRevision: develop
+    targetRevision: master
   project: default
