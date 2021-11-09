@@ -11,7 +11,7 @@ spec:
     namespace: ocp-demo-dev
   project: default
   source:
-    path: src/apps/dev
+    path: src/apps/dev/backend
     repoURL: 'https://github.com/jhoeflaken/ocp-demo-config'
     targetRevision: master
 #    plugin:

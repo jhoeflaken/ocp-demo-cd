@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ocp-demo-ui
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: in-cluster
+    namespace: ocp-demo-dev
+  project: default
+  source:
+    path: src/apps/dev/ui
+    repoURL: 'https://github.com/jhoeflaken/ocp-demo-config'
+    targetRevision: master
