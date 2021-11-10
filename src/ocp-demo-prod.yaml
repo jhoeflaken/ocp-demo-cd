@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ocp-demo-prod
+  namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: axians-ocp-demo
+    name: on-premises
+  source:
+    path: src/apps/prod
+    repoURL: 'https://github.com/jhoeflaken/ocp-demo-cd.git'
+    targetRevision: master
+  project: default
